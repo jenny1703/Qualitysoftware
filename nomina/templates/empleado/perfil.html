@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Perfil del Empleado{% endblock %}
+
+{% block content %}
+    <h2 class="mb-4">Perfil del Empleado</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" name="telefono" class="form-control" value="{{ empleado.telefono }}">
+        </div>
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" name="direccion" class="form-control" value="{{ empleado.direccion }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <a href="{% url 'home' %}" class="btn btn-secondary ms-2">Salir</a>
+    </form>
+{% endblock %}

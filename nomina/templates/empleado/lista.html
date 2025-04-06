@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Empleados</title>
+</head>
+<body>
+    <h1>Empleados Registrados</h1>
+    <a href="{% url 'crear_empleado' %}">Crear nuevo empleado</a>
+    <ul>
+        {% for empleado in empleados %}
+            <li>{{ empleado.nombre }} - {{ empleado.correo }}</li>
+        {% empty %}
+            <li>No hay empleados registrados aún.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

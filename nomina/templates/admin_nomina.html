@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Panel Admin - Nómina</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h2>Listado completo de nómina</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Teléfono</th>
+          <th>Dirección</th>
+          <th>Salario</th>
+          <th>Fecha Ingreso</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for n in nominas %}
+        <tr>
+          <td>{{ n.nombre }}</td>
+          <td>{{ n.correo }}</td>
+          <td>{{ n.telefono }}</td>
+          <td>{{ n.direccion }}</td>
+          <td>{{ n.salario }}</td>
+          <td>{{ n.fecha_ingreso }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

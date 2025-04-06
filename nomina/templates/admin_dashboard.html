@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Panel de Administración{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Panel de Administración</h2>
+
+<div class="row">
+    {% for app in app_list %}
+        <div class="col-md-6 mb-4">
+            <div class="card shadow">
+                <div class="card-header bg-dark text-white">
+                    {{ app.name }}
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for model in app.models %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ model.name }}
+                            <div>
+                                <a href="{{ model.admin_url }}" class="btn btn-sm btn-primary">Ver</a>
+                                <a href="{{ model.add_url }}" class="btn btn-sm btn-success">Agregar</a>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

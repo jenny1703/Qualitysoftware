@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Lista de Empleados{% endblock %}
+
+{% block content %}
+<h2>Lista de Empleados</h2>
+
+{% if usuario.rol == 'rrhh' %}
+    <a href="{% url 'crear_empleado' %}" class="btn btn-success mb-3">+ Crear nuevo empleado</a>
+{% endif %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for empleado in empleados %}
+        <tr>
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.correo }}</td>
+            <td>{{ empleado.telefono }}</td>
+            <td>
+                <a href="{% url 'rrhh_editar_empleado' empleado.id %}" class="btn btn-primary btn-sm">Editar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
